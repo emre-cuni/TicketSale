@@ -10,3 +10,15 @@ C:\Users\Cuni\Desktop\Github\TicketSale\TicketSale\obj\Debug\TicketSale.csproj.C
 C:\Users\Cuni\Desktop\Github\TicketSale\TicketSale\obj\Debug\TicketSale.exe
 C:\Users\Cuni\Desktop\Github\TicketSale\TicketSale\obj\Debug\TicketSale.pdb
 C:\Users\Cuni\Desktop\Github\TicketSale\TicketSale\obj\Debug\TicketSale.FormFlightSchedule.resources
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\bin\Debug\TicketSale.exe.config
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\bin\Debug\TicketSale.exe
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\bin\Debug\TicketSale.pdb
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.csproj.AssemblyReference.cache
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.FormMain.resources
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.FormFlightSchedule.resources
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.Properties.Resources.resources
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.csproj.GenerateResource.cache
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.csproj.CoreCompileInputs.cache
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.exe
+C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.pdb

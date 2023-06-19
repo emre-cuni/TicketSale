@@ -10,3 +10,6 @@
 19.06.2023
 * 0 Yolcu seçimi kontrol et
 * Loglamalarý n logger ile yap
+* Uçuþlarý saate göre ve fiyata göre sýralama seçenekleri sun(artan - azalan, azalan - artan)
+* Uçuþlarýn üst tarafýnda tarihleri ileri geri ayarlayabilelim
+* Veri tabanýna fiyat sütununu ekle

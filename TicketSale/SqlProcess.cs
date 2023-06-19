@@ -13,30 +13,33 @@ namespace TicketSale
 
         private string connectionString = "Server=.;Database=TicketSale;User Id=Cuni;Password=123456;";
         SqlConnection connection = null;
-        SqlCommand command = null;        
+        SqlCommand command = null;
         private Dictionary<string, Tuple<string, string>> airports = new Dictionary<string, Tuple<string, string>>();
+        private List<Tuple<string, string, DateTime, DateTime, int>> flights = new List<Tuple<string, string, DateTime, DateTime, int>>();
+        //private (string departureAirport, string arrivalAirport, DateTime departureTime, DateTime arrivalTime, int capacity) flights;
 
-        public bool SqlConnect(string connectionString)
+
+        public bool SqlConnect(string connectionString) // veri tabanı bağlantısını açan metot
         {
             try
             {
                 connection = new SqlConnection(connectionString);
                 connection.Open();
-                return true;
+                return true; // bağlantı başarıyla açılırsa true değerini döndürür
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace:" + ex.StackTrace, "Sql Bağlantı Hatası");
-                return false;
+                return false; // bir hata oluşursa false değerini döndürür
             }
         }
 
-        public Dictionary<string, Tuple<string, string>> SqlRead(string query)
+        public Dictionary<string, Tuple<string, string>> GetAirports(string query) // veri tabanından kayıtlı hava alanlarını çeken metot
         {
             try
             {
                 SqlDataReader reader = null;
-                if (!SqlConnect(connectionString))
+                if (!SqlConnect(connectionString)) // veri tabanı bağlantısını açar bir hata oluşursa boş değer döndürür
                     return null;
                 command = new SqlCommand(query, connection);
                 reader = command.ExecuteReader();
@@ -50,7 +53,31 @@ namespace TicketSale
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "SqlRead Hatası");
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "GetAirports Hatası");
+                return null;
+            }
+        }
+
+        public List<Tuple<string, string, DateTime, DateTime, int>> GetFlights(string query)
+        {
+            try
+            {
+                SqlDataReader reader = null;
+                if (!SqlConnect(connectionString))
+                    return null;
+                command = new SqlCommand(query, connection);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                    flights.Add(Tuple.Create(reader.GetString(0), reader.GetString(1), DateTime.Parse(reader.GetTimeSpan(2).ToString()), DateTime.Parse(reader.GetTimeSpan(3).ToString()), int.Parse(reader.GetByte(4).ToString())));
+                command.Dispose(); 
+                command = null;
+                reader.Close();
+                reader = null;
+                return flights;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "GetFlights Hatası"); 
                 return null;
             }
         }

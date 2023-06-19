@@ -18,7 +18,7 @@ namespace TicketSale
         }
 
         SqlProcess sql = new SqlProcess();
-        string query = null, swap = null, departureAirport = null, arrivalAirport = null;
+        string query = null, swap = null, departureAirport = null, arrivalAirport = null, departureDate = null, arrivalDate = null;
         Dictionary<string, Tuple<string, string>> airports = new Dictionary<string, Tuple<string, string>>();
         int adult = 0, youth = 0, child = 0, totalTraveller = 0;
         FormFlightSchedule flightSchedule;
@@ -28,14 +28,18 @@ namespace TicketSale
             try
             {
                 query = "Select * From Table_Airport";
-                airports = sql.SqlRead(query);
-                foreach (var item in airports)
+                airports = sql.GetAirports(query); // veri tabanındaki havaalanlarını çeker ve "airports" dictionary'sine atar
+                foreach (var item in airports) // combobox'lar doldurulur
                 {
                     comboBoxDeparture.Items.Add(item.Key);
                     comboBoxArrival.Items.Add(item.Key);
                 }
+                // comboboxlara default değer ataması yapılır
                 comboBoxDeparture.SelectedIndex = 1;
                 comboBoxArrival.SelectedIndex = 2;
+                // uçuş tarihleri default olarak bugün verilir
+                dateTimePickerDepartureDate.Value = DateTime.Now;
+                dateTimePickerArrivalDate.Value = DateTime.Now;
             }
             catch (Exception ex)
             {
@@ -47,13 +51,13 @@ namespace TicketSale
         {
             try
             {
-                if (checkBoxOneWay.Checked)
+                if (checkBoxOneWay.Checked) // tek yön seçilirse dönüş tarihi disabled yapılır
                 {
                     dateTimePickerArrivalDate.Visible = false;
                     labelArrow.Visible = false;
                     labelArrivalDate.Visible = false;
                 }
-                else
+                else // tek yön seçilmezse dönüş tarihi enabled yapılır
                 {
                     dateTimePickerArrivalDate.Visible = true;
                     labelArrow.Visible = true;
@@ -70,19 +74,24 @@ namespace TicketSale
         {
             try
             {
-                if (comboBoxDeparture.SelectedIndex != -1 && comboBoxArrival.SelectedIndex != -1)
+                if (comboBoxDeparture.SelectedIndex != -1 && comboBoxArrival.SelectedIndex != -1) // hava alanı seçilip seçilmediği kontrol edilir
                 {
-                    adult = int.Parse(numericUpDownAdult.Value.ToString());
-                    youth = int.Parse(numericUpDownYouth.Value.ToString());
-                    child = int.Parse(numericUpDownChild.Value.ToString());
+                    adult = int.Parse(numericUpDownAdult.Value.ToString()); // yetişkin yolcu sayısı alınır
+                    youth = int.Parse(numericUpDownYouth.Value.ToString()); // genç yolcu sayısı alınır
+                    child = int.Parse(numericUpDownChild.Value.ToString()); // çocuk yolcu sayısı alınır
+
                     totalTraveller = adult + youth + child;
-                    if (totalTraveller > 9)
+
+                    if (totalTraveller > 9) // toplam yolcu sayısı 9'dan fazlaysa uyarı pop-up'ı çıkartılır
                         MessageBox.Show("Toplam Yolcu 9'dan Fazla Olamaz", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    else
+                    else //toplam yolcu sayısı 9'a küçük eşitse uçuşlar listelenir
                     {
                         departureAirport = comboBoxDeparture.SelectedItem.ToString();
                         arrivalAirport = comboBoxArrival.SelectedItem.ToString();
-                        flightSchedule = new FormFlightSchedule(departureAirport,arrivalAirport);
+                        departureDate = DateTime.Parse(dateTimePickerDepartureDate.Text).ToString("dd/MM/yyyy");
+                        arrivalDate = DateTime.Parse(dateTimePickerArrivalDate.Text).ToString("dd/MM/yyyy");
+
+                        flightSchedule = new FormFlightSchedule(departureAirport, arrivalAirport, departureDate, arrivalDate, adult, youth, child);
                         flightSchedule.ShowDialog();
                     }
 
@@ -94,7 +103,7 @@ namespace TicketSale
             }
         }
 
-        private void buttonSwap_Click(object sender, EventArgs e)
+        private void buttonSwap_Click(object sender, EventArgs e) // kalkış ve varış hava alanları yer değiştirilir
         {
             try
             {

@@ -94,7 +94,8 @@
             // 
             // dateTimePickerDepartureDate
             // 
-            this.dateTimePickerDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDepartureDate.CustomFormat = "dd.MM.yyyy";
+            this.dateTimePickerDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerDepartureDate.Location = new System.Drawing.Point(4, 55);
             this.dateTimePickerDepartureDate.Name = "dateTimePickerDepartureDate";
             this.dateTimePickerDepartureDate.Size = new System.Drawing.Size(176, 29);
@@ -103,7 +104,8 @@
             // 
             // dateTimePickerArrivalDate
             // 
-            this.dateTimePickerArrivalDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerArrivalDate.CustomFormat = "dd.MM.yyyy";
+            this.dateTimePickerArrivalDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerArrivalDate.Location = new System.Drawing.Point(216, 55);
             this.dateTimePickerArrivalDate.Name = "dateTimePickerArrivalDate";
             this.dateTimePickerArrivalDate.Size = new System.Drawing.Size(176, 29);

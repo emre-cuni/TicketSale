@@ -1,0 +1,12 @@
+05.06.2023
+
+* Genç counter ve label'a tooltip ekle
+* Veri tabanýndaki kayýtlara kod adlarý eklenecek
+* Combobox'a havaalanlarý eklenecek
+* Tek Yön Tiklendiðinde dönüþ timepicker visible false olacak
+* Dönüþ Tarihi gidiþten önce olamaz
+---------------defterdekiler----------------
+
+19.06.2023
+* 0 Yolcu seçimi kontrol et
+* Loglamalarý n logger ile yap

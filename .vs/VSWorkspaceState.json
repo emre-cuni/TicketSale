@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TicketSale"
   ],
-  "SelectedNode": "\\C:\\Users\\Cuni\\Source\\Repos\\emre-cuni\\TicketSale",
+  "SelectedNode": "\\TicketSale\\FormFlightSchedule.cs",
   "PreviewInSolutionExplorer": false
 }

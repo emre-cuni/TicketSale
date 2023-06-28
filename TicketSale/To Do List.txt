@@ -16,3 +16,8 @@
 
 28.06.2023
 * Uçuþlara hover efekti ekle
+
+29.06.2023
+* En ucuz bileti ayrýca belirt
+* Tabindexleri kontrol et
+* Bütün formlarý tam ekran yap ama bütün toollar ekranýn ortasýnda olsun

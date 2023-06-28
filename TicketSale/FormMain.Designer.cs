@@ -49,6 +49,7 @@
             this.numericUpDownAdult = new System.Windows.Forms.NumericUpDown();
             this.buttonSwap = new System.Windows.Forms.Button();
             this.buttonContinue = new System.Windows.Forms.Button();
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.groupBoxDeparture.SuspendLayout();
             this.groupBoxArrival.SuspendLayout();
             this.groupBoxDate.SuspendLayout();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChild)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYouth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdult)).BeginInit();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxDeparture
@@ -63,7 +65,7 @@
             this.groupBoxDeparture.Controls.Add(this.comboBoxDeparture);
             this.groupBoxDeparture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBoxDeparture.ForeColor = System.Drawing.Color.White;
-            this.groupBoxDeparture.Location = new System.Drawing.Point(13, 13);
+            this.groupBoxDeparture.Location = new System.Drawing.Point(7, 15);
             this.groupBoxDeparture.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDeparture.Name = "groupBoxDeparture";
             this.groupBoxDeparture.Padding = new System.Windows.Forms.Padding(4);
@@ -128,7 +130,7 @@
             this.groupBoxArrival.Controls.Add(this.comboBoxArrival);
             this.groupBoxArrival.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBoxArrival.ForeColor = System.Drawing.Color.White;
-            this.groupBoxArrival.Location = new System.Drawing.Point(326, 13);
+            this.groupBoxArrival.Location = new System.Drawing.Point(320, 15);
             this.groupBoxArrival.Name = "groupBoxArrival";
             this.groupBoxArrival.Size = new System.Drawing.Size(257, 73);
             this.groupBoxArrival.TabIndex = 5;
@@ -145,7 +147,7 @@
             this.groupBoxDate.Controls.Add(this.checkBoxOneWay);
             this.groupBoxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBoxDate.ForeColor = System.Drawing.Color.White;
-            this.groupBoxDate.Location = new System.Drawing.Point(13, 93);
+            this.groupBoxDate.Location = new System.Drawing.Point(7, 95);
             this.groupBoxDate.Name = "groupBoxDate";
             this.groupBoxDate.Size = new System.Drawing.Size(570, 100);
             this.groupBoxDate.TabIndex = 6;
@@ -188,7 +190,7 @@
             this.groupBoxPassenger.Controls.Add(this.numericUpDownAdult);
             this.groupBoxPassenger.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBoxPassenger.ForeColor = System.Drawing.Color.White;
-            this.groupBoxPassenger.Location = new System.Drawing.Point(13, 200);
+            this.groupBoxPassenger.Location = new System.Drawing.Point(7, 202);
             this.groupBoxPassenger.Name = "groupBoxPassenger";
             this.groupBoxPassenger.Size = new System.Drawing.Size(570, 103);
             this.groupBoxPassenger.TabIndex = 7;
@@ -261,7 +263,7 @@
             // 
             this.buttonSwap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.buttonSwap.Image = ((System.Drawing.Image)(resources.GetObject("buttonSwap.Image")));
-            this.buttonSwap.Location = new System.Drawing.Point(282, 40);
+            this.buttonSwap.Location = new System.Drawing.Point(276, 42);
             this.buttonSwap.Name = "buttonSwap";
             this.buttonSwap.Size = new System.Drawing.Size(38, 38);
             this.buttonSwap.TabIndex = 8;
@@ -271,7 +273,7 @@
             // buttonContinue
             // 
             this.buttonContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonContinue.Location = new System.Drawing.Point(13, 309);
+            this.buttonContinue.Location = new System.Drawing.Point(7, 311);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(570, 52);
             this.buttonContinue.TabIndex = 9;
@@ -279,18 +281,27 @@
             this.buttonContinue.UseVisualStyleBackColor = true;
             this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.groupBoxDeparture);
+            this.groupBox.Controls.Add(this.buttonContinue);
+            this.groupBox.Controls.Add(this.groupBoxArrival);
+            this.groupBox.Controls.Add(this.buttonSwap);
+            this.groupBox.Controls.Add(this.groupBoxDate);
+            this.groupBox.Controls.Add(this.groupBoxPassenger);
+            this.groupBox.Location = new System.Drawing.Point(12, 12);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(586, 373);
+            this.groupBox.TabIndex = 10;
+            this.groupBox.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(596, 389);
-            this.Controls.Add(this.buttonContinue);
-            this.Controls.Add(this.buttonSwap);
-            this.Controls.Add(this.groupBoxPassenger);
-            this.Controls.Add(this.groupBoxDate);
-            this.Controls.Add(this.groupBoxArrival);
-            this.Controls.Add(this.groupBoxDeparture);
+            this.ClientSize = new System.Drawing.Size(607, 402);
+            this.Controls.Add(this.groupBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
@@ -306,6 +317,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownChild)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYouth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdult)).EndInit();
+            this.groupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -332,6 +344,7 @@
         private System.Windows.Forms.Label labelChild;
         private System.Windows.Forms.NumericUpDown numericUpDownChild;
         private System.Windows.Forms.Button buttonContinue;
+        private System.Windows.Forms.GroupBox groupBox;
     }
 }
 

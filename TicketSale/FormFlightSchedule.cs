@@ -27,7 +27,7 @@ namespace TicketSale
         SqlProcess sqlProcess = new SqlProcess();
         string departureAirport = null, arrivalAirport = null, query = null, departureDate = null, arrivalDate = null;
         string[] flight;
-        int adult = 0, youth = 0, child = 0;
+        int adult = 0, youth = 0, child = 0, flightsCount = 0;
         List<Tuple<string, string, DateTime, DateTime, int>> flights = new List<Tuple<string, string, DateTime, DateTime, int>>();
         Panel panel;
         Label labelDepartureTime, labelArrivalTime, labelFlightTime, labelPrice;
@@ -40,7 +40,7 @@ namespace TicketSale
             {
                 //******************************************************* veri tabanından uçuşları çektim düzgün formatta flowlayoutpanel'a ekle*********************************************************************************
 
-                query = "Select departureAirport.airportName As departureAirportName, arrivalAirport.airportName As arrivalAirportName, departureTime, arrivalTime, passengerCapacity From Table_Flights " +
+                query = "Select departureAirport.airportName As departureAirportName, arrivalAirport.airportName As arrivalAirportName, departureTime, arrivalTime, passengerCapacity, price From Table_Flights " +
                     "Inner Join Table_Airport As departureAirport On Table_Flights.departureId = departureAirport.id " +
                     "Inner Join Table_Airport As arrivalAirport On Table_Flights.arrivalId = arrivalAirport.id " +
                    $"Where departureAirport.airportName = '{departureAirport}' And arrivalAirport.airportName = '{arrivalAirport}';";
@@ -48,6 +48,7 @@ namespace TicketSale
                 flights = sqlProcess.GetFlights(query);
                 foreach (var item in flights)
                 {
+                    flightsCount++;
                     flight = item.ToString().Split(',');
 
                     panel = new Panel();
@@ -61,11 +62,12 @@ namespace TicketSale
                     // flight[1] -> varış havaalanı
                     flight[2] = flight[2].Trim(); // kalkış saati
                     flight[3] = flight[3].Trim(); // iniş saati
+                    flight[5] = flight[5].ToString().Trim();
 
                     labelDepartureTime.Text = flight[2].Trim().Substring(flight[2].IndexOf(" ") + 1, 5);
                     labelArrivalTime.Text = flight[3].Trim().Substring(flight[3].IndexOf(" ") + 1, 5);
                     labelFlightTime.Text = "DİREKT, 0S 55DK";
-                    labelPrice.Text = "₺440,0";
+                    labelPrice.Text = "₺" + flight[5];
 
                     labelDepartureTime.ForeColor = SystemColors.ActiveCaption;
                     labelArrivalTime.ForeColor = SystemColors.ActiveCaption;
@@ -95,12 +97,13 @@ namespace TicketSale
                     panel.Controls.Add(labelFlightTime);
                     panel.Controls.Add(labelPrice);
                     panel.Controls.Add(pictureBox);
-
-                    
                     panel.Size = new Size(480, 116);
                     panel.BorderStyle = BorderStyle.FixedSingle;
                     flowLayoutPanel1.Controls.Add(panel);
                 }
+                if (flightsCount > 3)
+                    Width = flowLayoutPanel1.Width + 30;
+
             }
             catch (Exception ex)
             {

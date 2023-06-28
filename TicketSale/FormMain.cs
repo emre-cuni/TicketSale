@@ -27,6 +27,12 @@ namespace TicketSale
         {
             try
             {
+                //form'u tam ekran yapma
+                WindowState = FormWindowState.Maximized;
+
+                //groupbox'ı ekranın ortasına alma
+                groupBox.Location = new Point(Width / 3, Height / 4);
+
                 query = "Select * From Table_Airport";
                 airports = sql.GetAirports(query); // veri tabanındaki havaalanlarını çeker ve "airports" dictionary'sine atar
                 foreach (var item in airports) // combobox'lar doldurulur
@@ -92,7 +98,9 @@ namespace TicketSale
                         arrivalDate = DateTime.Parse(dateTimePickerArrivalDate.Text).ToString("dd/MM/yyyy");
 
                         flightSchedule = new FormFlightSchedule(departureAirport, arrivalAirport, departureDate, arrivalDate, adult, youth, child);
+                        Hide();
                         flightSchedule.ShowDialog();
+                        Close();
                     }
 
                 }

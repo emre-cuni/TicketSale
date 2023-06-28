@@ -62,12 +62,12 @@ namespace TicketSale
                     // flight[1] -> varış havaalanı
                     flight[2] = flight[2].Trim(); // kalkış saati
                     flight[3] = flight[3].Trim(); // iniş saati
-                    flight[5] = flight[5].ToString().Trim();
+                    //flight[5] = flight[5].ToString().Trim();
 
                     labelDepartureTime.Text = flight[2].Trim().Substring(flight[2].IndexOf(" ") + 1, 5);
                     labelArrivalTime.Text = flight[3].Trim().Substring(flight[3].IndexOf(" ") + 1, 5);
                     labelFlightTime.Text = "DİREKT, 0S 55DK";
-                    labelPrice.Text = "₺" + flight[5];
+                    labelPrice.Text = "₺440";//+ flight[5];
 
                     labelDepartureTime.ForeColor = SystemColors.ActiveCaption;
                     labelArrivalTime.ForeColor = SystemColors.ActiveCaption;
@@ -88,7 +88,7 @@ namespace TicketSale
                     labelPrice.Size = new Size(109, 33);
                     labelFlightTime.Size = new Size(144, 18);
 
-                    pictureBox.Image = Image.FromFile("C:\\Users\\Cuni\\Desktop\\point to point.png");
+                    pictureBox.Image = global::TicketSale.Properties.Resources.point_to_point;
                     pictureBox.Location = new Point(110, 27);
                     pictureBox.Size = new Size(99, 22);
 

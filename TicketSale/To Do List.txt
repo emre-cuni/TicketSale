@@ -21,3 +21,4 @@
 * En ucuz bileti ayrýca belirt
 * Tabindexleri kontrol et
 * Bütün formlarý tam ekran yap ama bütün toollar ekranýn ortasýnda olsun
+* "point to point.png"nin yolunu dinamik ver

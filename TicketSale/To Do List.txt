@@ -13,3 +13,6 @@
 * Uçuþlarý saate göre ve fiyata göre sýralama seçenekleri sun(artan - azalan, azalan - artan)
 * Uçuþlarýn üst tarafýnda tarihleri ileri geri ayarlayabilelim
 * Veri tabanýna fiyat sütununu ekle
+
+28.06.2023
+* Uçuþlara hover efekti ekle

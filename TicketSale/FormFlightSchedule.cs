@@ -30,7 +30,9 @@ namespace TicketSale
         int adult = 0, youth = 0, child = 0;
         List<Tuple<string, string, DateTime, DateTime, int>> flights = new List<Tuple<string, string, DateTime, DateTime, int>>();
         Panel panel;
-        Button button;
+        Label labelDepartureTime, labelArrivalTime, labelFlightTime, labelPrice;
+        PictureBox pictureBox;
+
 
         private void FormFlightSchedule_Load(object sender, EventArgs e)
         {
@@ -49,15 +51,54 @@ namespace TicketSale
                     flight = item.ToString().Split(',');
 
                     panel = new Panel();
-                    button = new Button();
-                    flight[0] = flight[0].Substring(1);
-                    flight[2] = flight[2].Trim();
-                    flight[3] = flight[3].Trim();
-                    button.Text = flight[0] + " <=====>" + flight[1] + "\n\n" + flight[2].Trim().Substring(flight[2].IndexOf(" ") + 1, 5) + "<===>" + flight[3].Trim().Substring(flight[3].IndexOf(" ") + 1, 5);
-                    button.Size = new Size(600, 120);
-                    button.BackColor = Color.Silver;
-                    panel.Controls.Add(button);
-                    panel.Size = new Size(610, 130);
+                    labelDepartureTime = new Label();
+                    labelArrivalTime = new Label();
+                    labelFlightTime = new Label();
+                    labelPrice = new Label();
+                    pictureBox = new PictureBox();
+
+                    flight[0] = flight[0].Substring(1); // kalkış havaalanı
+                    // flight[1] -> varış havaalanı
+                    flight[2] = flight[2].Trim(); // kalkış saati
+                    flight[3] = flight[3].Trim(); // iniş saati
+
+                    labelDepartureTime.Text = flight[2].Trim().Substring(flight[2].IndexOf(" ") + 1, 5);
+                    labelArrivalTime.Text = flight[3].Trim().Substring(flight[3].IndexOf(" ") + 1, 5);
+                    labelFlightTime.Text = "DİREKT, 0S 55DK";
+                    labelPrice.Text = "₺440,0";
+
+                    labelDepartureTime.ForeColor = SystemColors.ActiveCaption;
+                    labelArrivalTime.ForeColor = SystemColors.ActiveCaption;
+                    labelPrice.ForeColor = SystemColors.ActiveCaption;
+                    labelFlightTime.ForeColor = SystemColors.AppWorkspace;
+
+                    labelDepartureTime.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162)));
+                    labelArrivalTime.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162)));
+                    labelPrice.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(162)));
+
+                    labelDepartureTime.Location = new Point(28, 23);
+                    labelArrivalTime.Location = new Point(215, 23);
+                    labelFlightTime.Location = new Point(33, 66);
+                    labelPrice.Location = new Point(354, 38);
+
+                    labelDepartureTime.Size = new Size(71, 29);
+                    labelArrivalTime.Size = new Size(71, 29);
+                    labelPrice.Size = new Size(109, 33);
+                    labelFlightTime.Size = new Size(144, 18);
+
+                    pictureBox.Image = Image.FromFile("C:\\Users\\Cuni\\Desktop\\point to point.png");
+                    pictureBox.Location = new Point(110, 27);
+                    pictureBox.Size = new Size(99, 22);
+
+                    panel.Controls.Add(labelDepartureTime);
+                    panel.Controls.Add(labelArrivalTime);
+                    panel.Controls.Add(labelFlightTime);
+                    panel.Controls.Add(labelPrice);
+                    panel.Controls.Add(pictureBox);
+
+                    
+                    panel.Size = new Size(480, 116);
+                    panel.BorderStyle = BorderStyle.FixedSingle;
                     flowLayoutPanel1.Controls.Add(panel);
                 }
             }

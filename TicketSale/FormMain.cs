@@ -33,7 +33,7 @@ namespace TicketSale
                 //groupbox'ı ekranın ortasına alma
                 groupBox.Location = new Point(Width / 3, Height / 4);
 
-                query = "Select * From Table_Airport";
+                query = "SELECT * FROM Table_Airport";
                 airports = sql.GetAirports(query); // veri tabanındaki havaalanlarını çeker ve "airports" dictionary'sine atar
                 foreach (var item in airports) // combobox'lar doldurulur
                 {

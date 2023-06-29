@@ -15,7 +15,7 @@ namespace TicketSale
         SqlConnection connection = null;
         SqlCommand command = null;
         private Dictionary<string, Tuple<string, string>> airports = new Dictionary<string, Tuple<string, string>>();
-        private List<Tuple<string, string, DateTime, DateTime, int>> flights = new List<Tuple<string, string, DateTime, DateTime, int>>();
+        private List<Tuple<string, string, DateTime, DateTime, int, double>> flights = new List<Tuple<string, string, DateTime, DateTime, int, double>>();
         //private (string departureAirport, string arrivalAirport, DateTime departureTime, DateTime arrivalTime, int capacity) flights;
 
 
@@ -41,14 +41,18 @@ namespace TicketSale
                 SqlDataReader reader = null;
                 if (!SqlConnect(connectionString)) // veri tabanı bağlantısını açar bir hata oluşursa boş değer döndürür
                     return null;
+
                 command = new SqlCommand(query, connection);
                 reader = command.ExecuteReader();
+
                 while (reader.Read())
                     airports.Add(reader.GetString(1), Tuple.Create(reader.GetString(2), reader.GetString(3)));
+
                 command.Dispose();
                 command = null;
                 reader.Close();
                 reader = null;
+
                 return airports;
             }
             catch (Exception ex)
@@ -58,7 +62,7 @@ namespace TicketSale
             }
         }
 
-        public List<Tuple<string, string, DateTime, DateTime, int>> GetFlights(string query)
+        public List<Tuple<string, string, DateTime, DateTime, int, double>> GetFlights(string query)
         {
             try
             {
@@ -68,8 +72,8 @@ namespace TicketSale
                 command = new SqlCommand(query, connection);
                 reader = command.ExecuteReader();
                 while (reader.Read())
-                    flights.Add(Tuple.Create(reader.GetString(0), reader.GetString(1), DateTime.Parse(reader.GetTimeSpan(2).ToString()), DateTime.Parse(reader.GetTimeSpan(3).ToString()), int.Parse(reader.GetByte(4).ToString())));
-                command.Dispose(); 
+                    flights.Add(Tuple.Create(reader.GetString(0), reader.GetString(1), DateTime.Parse(reader.GetTimeSpan(2).ToString()), DateTime.Parse(reader.GetTimeSpan(3).ToString()), int.Parse(reader.GetByte(4).ToString()), double.Parse(reader.GetDecimal(5).ToString())));
+                command.Dispose();
                 command = null;
                 reader.Close();
                 reader = null;
@@ -77,7 +81,7 @@ namespace TicketSale
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "GetFlights Hatası"); 
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "GetFlights Hatası");
                 return null;
             }
         }

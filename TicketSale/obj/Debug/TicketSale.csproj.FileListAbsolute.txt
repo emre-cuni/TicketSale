@@ -22,3 +22,4 @@ C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.
 C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.csproj.CoreCompileInputs.cache
 C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.exe
 C:\Users\Cuni\Source\Repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.pdb
+C:\Users\Cuni\source\repos\emre-cuni\TicketSale\TicketSale\obj\Debug\TicketSale.FormPassengerInfo.resources

@@ -90,7 +90,7 @@ namespace TicketSale
 
                     if (totalTraveller > 9) // toplam yolcu sayısı 9'dan fazlaysa uyarı pop-up'ı çıkartılır
                         MessageBox.Show("Toplam Yolcu 9'dan Fazla Olamaz", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    else //toplam yolcu sayısı 9'a küçük eşitse uçuşlar listelenir
+                    else if (totalTraveller > 0) //toplam yolcu sayısı 9'dan küçük 0'dan büyükse uçuşlar listelenir
                     {
                         departureAirport = comboBoxDeparture.SelectedItem.ToString();
                         arrivalAirport = comboBoxArrival.SelectedItem.ToString();
@@ -102,7 +102,8 @@ namespace TicketSale
                         flightSchedule.ShowDialog();
                         Close();
                     }
-
+                    else
+                        MessageBox.Show("Yolcu Sayısı 0 Olamaz!", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)

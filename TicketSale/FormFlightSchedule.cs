@@ -22,23 +22,25 @@ namespace TicketSale
             adult = _adult;
             youth = _youth;
             child = _child;
+            totalPassenger = adult + youth + child;
         }
 
         SqlProcess sqlProcess = new SqlProcess();
         string departureAirport = null, arrivalAirport = null, query = null, departureDate = null, arrivalDate = null, flightTime = null;
         string[] flight;
-        int adult = 0, youth = 0, child = 0, flightsCount = 0;
-        List<Tuple<string, string, DateTime, DateTime, int, double>> flights = new List<Tuple<string, string, DateTime, DateTime, int, double>>();
+        int adult = 0, youth = 0, child = 0, flightsCount = 0, flightId = -1, totalPassenger = 0, passengerCapacity = 0;
+        List<Tuple<int, string, string, DateTime, DateTime, int, double>> flights = new List<Tuple<int, string, string, DateTime, DateTime, int, double>>();
         Panel panel;
         Label labelDepartureTime, labelArrivalTime, labelFlightTime, labelPrice;
         PictureBox pictureBox;
         FormPassengerInfo formPassengerInfo;
+        
 
         private void FormFlightSchedule_Load(object sender, EventArgs e)
         {
             try
             {
-                query = "SELECT departureAirport.airportName AS departureAirportName, arrivalAirport.airportName AS arrivalAirportName, departureTime, arrivalTime, passengerCapacity, price FROM Table_Flights " +
+                query = "SELECT Table_Flights.id, departureAirport.airportName AS departureAirportName, arrivalAirport.airportName AS arrivalAirportName, departureTime, arrivalTime, passengerCapacity, price FROM Table_Flights " +
                     "INNER JOIN Table_Airport AS departureAirport ON Table_Flights.departureId = departureAirport.id " +
                     "INNER JOIN Table_Airport AS arrivalAirport ON Table_Flights.arrivalId = arrivalAirport.id " +
                     $"WHERE departureAirport.airportName = '{departureAirport}' AND arrivalAirport.airportName = '{arrivalAirport}';";
@@ -56,28 +58,32 @@ namespace TicketSale
                     labelPrice = new Label();
                     pictureBox = new PictureBox();
 
-                    flight[0] = flight[0].Substring(1); // kalkış havaalanı
-                    flight[1] = flight[1].Trim(); // varış havaalanı
-                    flight[2] = flight[2].Trim(); // kalkış saati
-                    flight[3] = flight[3].Trim(); // iniş saati
-                    flight[4] = flight[4].Trim(); // yolcu kapasitesi
-                    flight[5] = flight[5].ToString().Substring(0, flight[5].IndexOf(")")).Trim(); // bilet fiyatı
+                    flight[0] = flight[0].Substring(1); // id
+                    flight[1] = flight[1].Trim(); // kalkış havaalanı
+                    flight[2] = flight[2].Trim(); // varış havaalanı
+                    flight[3] = flight[3].Trim(); // kalkış saati
+                    flight[4] = flight[4].Trim(); // iniş saati
+                    flight[5] = flight[5].Trim(); // yolcu kapasitesi
+                    flight[6] = flight[6].ToString().Substring(0, flight[6].IndexOf(")")).Trim(); // bilet fiyatı
 
-                    if (DateTime.Parse(flight[2]) < DateTime.Parse(flight[3]))
-                        flightTime = (DateTime.Parse(flight[3]) - DateTime.Parse(flight[2])).ToString();
+                    if (DateTime.Parse(flight[3]) < DateTime.Parse(flight[4]))
+                        flightTime = (DateTime.Parse(flight[4]) - DateTime.Parse(flight[3])).ToString();
                     else
-                        flightTime = ((DateTime.Parse("23:59:59") - DateTime.Parse(flight[2]).AddSeconds(-1)) + (DateTime.Parse(flight[3]) - DateTime.Parse("00:00:00"))).ToString();
+                        flightTime = ((DateTime.Parse("23:59:59") - DateTime.Parse(flight[3]).AddSeconds(-1)) + (DateTime.Parse(flight[4]) - DateTime.Parse("00:00:00"))).ToString();
                     flightTime = flightTime.Substring(0, flightTime.IndexOf(":")).Trim() + "S " + flightTime.Substring(flightTime.IndexOf(":") + 1, 2) + "DK";
                     if (flightTime[0] == '0')
                         flightTime = flightTime.Substring(1);
                     if ((flightTime[4] == '0' && flightTime[5] != 'D') || (flightTime[3] == '0' && flightTime[4] != 'D'))
                         flightTime = flightTime.Substring(0, flightTime.IndexOf("0") - 1) + " " + flightTime.Substring(flightTime.IndexOf('0') + 1);
 
+                    // her uçuşun kapasitesi dictionary'e atanır
+
+
                     // label'lara değer atamaları yapılır
-                    labelDepartureTime.Text = flight[2].Trim().Substring(flight[2].IndexOf(" ") + 1, 5);
-                    labelArrivalTime.Text = flight[3].Trim().Substring(flight[3].IndexOf(" ") + 1, 5);
+                    labelDepartureTime.Text = flight[3].Trim().Substring(flight[3].IndexOf(" ") + 1, 5);
+                    labelArrivalTime.Text = flight[4].Trim().Substring(flight[4].IndexOf(" ") + 1, 5);
                     labelFlightTime.Text = "DİREKT, " + flightTime;
-                    labelPrice.Text = "₺" + flight[5];
+                    labelPrice.Text = "₺" + flight[6];
 
                     // label'ların renkleri düzenlenir
                     labelDepartureTime.ForeColor = SystemColors.ActiveCaption;
@@ -115,6 +121,14 @@ namespace TicketSale
                     pictureBox.Click += new EventHandler(panel_Click);
                     panel.Click += new EventHandler(panel_Click);
 
+                    // uçuş id'si tool'ların tag değerine atanır hangi uçuşun seçildiği anlaşılır
+                    labelArrivalTime.Tag = int.Parse(flight[0]);
+                    labelDepartureTime.Tag = int.Parse(flight[0]);
+                    labelFlightTime.Tag = int.Parse(flight[0]);
+                    labelPrice.Tag = int.Parse(flight[0]);
+                    pictureBox.Image.Tag = int.Parse(flight[0]);
+                    panel.Tag = int.Parse(flight[0]);
+
                     // oluşturulan tool'lar flowlayoutpanel'a eklenir
                     panel.Controls.Add(labelDepartureTime);
                     panel.Controls.Add(labelArrivalTime);
@@ -138,8 +152,36 @@ namespace TicketSale
         {
             try
             {
+                Panel panel = null;
+                PictureBox pictureBox = null;
+                Label label = null;
+
+                // seçilen uçuşun hangi id
+                if (sender.GetType() == typeof(Panel))
+                {
+                    panel = (Panel)sender;
+                    flightId = int.Parse(panel.Tag.ToString());
+                }
+                else if (sender.GetType() == typeof(Label))
+                {
+                    label = (Label)sender;
+                    flightId = int.Parse(label.Tag.ToString());
+                }
+                else if (sender.GetType() == typeof(PictureBox))
+                {
+                    pictureBox = (PictureBox)sender;
+                    flightId = int.Parse(pictureBox.Tag.ToString());
+                }
+
+                // seçilen uçuşun yolcu kapasitesi alınır
+                foreach(var item in flights)
+                {
+                    if (item.Item1 == flightId)
+                        passengerCapacity = item.Item6;
+                }
+
                 Hide();
-                formPassengerInfo = new FormPassengerInfo();
+                formPassengerInfo = new FormPassengerInfo(int.Parse(panel.Tag.ToString()), totalPassenger, passengerCapacity);
                 formPassengerInfo.ShowDialog();
                 Show();
             }

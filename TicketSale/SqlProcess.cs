@@ -15,7 +15,7 @@ namespace TicketSale
         SqlConnection connection = null;
         SqlCommand command = null;
         private Dictionary<string, Tuple<string, string>> airports = new Dictionary<string, Tuple<string, string>>();
-        private List<Tuple<string, string, DateTime, DateTime, int, double>> flights = new List<Tuple<string, string, DateTime, DateTime, int, double>>();
+        private List<Tuple<int, string, string, DateTime, DateTime, int, double>> flights = new List<Tuple<int, string, string, DateTime, DateTime, int, double>>();
         //private (string departureAirport, string arrivalAirport, DateTime departureTime, DateTime arrivalTime, int capacity) flights;
 
 
@@ -62,7 +62,7 @@ namespace TicketSale
             }
         }
 
-        public List<Tuple<string, string, DateTime, DateTime, int, double>> GetFlights(string query)
+        public List<Tuple<int, string, string, DateTime, DateTime, int, double>> GetFlights(string query) // veri tabanında kayıtlı uçuşları çeker
         {
             try
             {
@@ -72,7 +72,7 @@ namespace TicketSale
                 command = new SqlCommand(query, connection);
                 reader = command.ExecuteReader();
                 while (reader.Read())
-                    flights.Add(Tuple.Create(reader.GetString(0), reader.GetString(1), DateTime.Parse(reader.GetTimeSpan(2).ToString()), DateTime.Parse(reader.GetTimeSpan(3).ToString()), int.Parse(reader.GetByte(4).ToString()), double.Parse(reader.GetDecimal(5).ToString())));
+                    flights.Add(Tuple.Create(int.Parse(reader.GetByte(0).ToString()), reader.GetString(1), reader.GetString(2), DateTime.Parse(reader.GetTimeSpan(3).ToString()), DateTime.Parse(reader.GetTimeSpan(4).ToString()), int.Parse(reader.GetByte(5).ToString()), double.Parse(reader.GetDecimal(6).ToString())));
                 command.Dispose();
                 command = null;
                 reader.Close();
@@ -86,5 +86,23 @@ namespace TicketSale
             }
         }
 
+        public bool UpdateCapacity(string query)
+        {
+            try
+            {
+                if (!SqlConnect(connectionString))
+                    return false;
+                command = new SqlCommand(query, connection); 
+                command.ExecuteNonQuery();
+                command.Dispose();
+                command = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "UpdateCapacity Hatası");
+                return false;
+            }
+        }
     }
 }

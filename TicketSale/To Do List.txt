@@ -23,3 +23,11 @@
 * Bütün formlarý tam ekran yap ama bütün toollar ekranýn ortasýnda olsun
 * "point to point.png"nin yolunu dinamik ver
 * Son 3-5-10 koltuk bilgisi ekle
+
+06.07.2023
+* Form textlerini düzenle
+* Bilet seçim ekranýný da main form gibi tam ekran yapmaya çalýþ
+* Veritabanýna kullanýcý tablosu ekle
+* Kullanýcý giriþi ekle (þart deðil)
+* Kullanýcý giriþi yapýldýðýnda geçmiþ biletler görüntülenebilecek
+* Kullanýcý giriþine ödeme kýsmýnda opsiyonel sun

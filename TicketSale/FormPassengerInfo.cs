@@ -12,19 +12,72 @@ namespace TicketSale
 {
     public partial class FormPassengerInfo : Form
     {
-        public FormPassengerInfo(int _flightId, int _passengerCount, int _passengerCapacity)
+        public FormPassengerInfo(int _flightId, int _passengerCount, int _passengerCapacity, double _price)
         {
             InitializeComponent();
             flightId = _flightId;
             passengerCount = _passengerCount;
             passengerCapacity = _passengerCapacity;
+            price = _price;
         }
 
         int flightId = -1, passengerCount = 0, passengerCapacity = 0;
+        double price = 0;
         string query = null;
-        SqlProcess sqlProcess= new SqlProcess();
+        SqlProcess sqlProcess = new SqlProcess();
+        bool passengerControl = true;
 
-        private void button1_Click(object sender, EventArgs e)
+        private void textBoxPassenger_Leave(object sender, EventArgs e) // eklenen yolcuları iletişim için combobox'a ekler
+        {
+            try
+            {
+                if (textBoxPassengerName.Text != string.Empty && textBoxPassengerSurname.Text != string.Empty && maskedTextBoxTC.Text != string.Empty && passengerControl)
+                {
+                    comboBoxContacts.Items.Add(textBoxPassengerName.Text.Trim() + " " + textBoxPassengerSurname.Text.Trim());
+                    passengerControl = !passengerControl;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "textBoxPassenger Leave Hatası ");
+            }
+        }
+
+        private void textBoxPassenger_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                if(!passengerControl)
+                {
+                    textBoxPassengerName.Text = string.Empty;
+                    textBoxPassengerSurname.Text = string.Empty;
+                    maskedTextBoxTC.Text = string.Empty;
+                    passengerControl = !passengerControl;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "textBoxPassenger Enter Hatası ");
+            }
+        }
+
+        private void comboBoxContacts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(comboBoxContacts.SelectedIndex != -1)
+                {
+                    textBoxContactName.Text = comboBoxContacts.SelectedItem.ToString().Substring(0, comboBoxContacts.SelectedItem.ToString().IndexOf(" "));
+                    textBoxContactSurname.Text = comboBoxContacts.SelectedItem.ToString().Substring( comboBoxContacts.SelectedItem.ToString().IndexOf(" ") + 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Yolcu Seçme Hatası");
+            }
+        }
+
+        private void buttonContinue_Click(object sender, EventArgs e)
         {
             try
             {
@@ -48,7 +101,7 @@ namespace TicketSale
         {
             try
             {
-
+                labelTotalPrice.Text = "Toplam: " + (price * passengerCount) +"₺";
             }
             catch (Exception ex)
             {

@@ -30,42 +30,42 @@
         {
             this.buttonContinue = new System.Windows.Forms.Button();
             this.groupBoxPassenger = new System.Windows.Forms.GroupBox();
-            this.groupBoxContact = new System.Windows.Forms.GroupBox();
-            this.radioButtonMale = new System.Windows.Forms.RadioButton();
-            this.radioButtonFemale = new System.Windows.Forms.RadioButton();
-            this.groupBoxGender = new System.Windows.Forms.GroupBox();
-            this.groupBoxPassengerName = new System.Windows.Forms.GroupBox();
-            this.textBoxPassengerName = new System.Windows.Forms.TextBox();
-            this.groupBoxPassengerSurname = new System.Windows.Forms.GroupBox();
-            this.textBoxPassengerSurname = new System.Windows.Forms.TextBox();
+            this.groupBoxPassengerTC = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxTC = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxPassengerBirthDay = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.groupBoxPassengerTC = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.groupBoxContactToPassenger = new System.Windows.Forms.GroupBox();
-            this.groupBoxContactSurname = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBoxContactName = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBoxPassengerSurname = new System.Windows.Forms.GroupBox();
+            this.textBoxPassengerSurname = new System.Windows.Forms.TextBox();
+            this.groupBoxPassengerName = new System.Windows.Forms.GroupBox();
+            this.textBoxPassengerName = new System.Windows.Forms.TextBox();
+            this.groupBoxGender = new System.Windows.Forms.GroupBox();
+            this.radioButtonMale = new System.Windows.Forms.RadioButton();
+            this.radioButtonFemale = new System.Windows.Forms.RadioButton();
+            this.groupBoxContact = new System.Windows.Forms.GroupBox();
             this.groupBoxContactPhone = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxContactPhone = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxContactEmail = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxContactEmail = new System.Windows.Forms.TextBox();
+            this.groupBoxContactSurname = new System.Windows.Forms.GroupBox();
+            this.textBoxContactSurname = new System.Windows.Forms.TextBox();
+            this.groupBoxContactName = new System.Windows.Forms.GroupBox();
+            this.textBoxContactName = new System.Windows.Forms.TextBox();
+            this.groupBoxContactToPassenger = new System.Windows.Forms.GroupBox();
+            this.comboBoxContacts = new System.Windows.Forms.ComboBox();
             this.groupBoxContinue = new System.Windows.Forms.GroupBox();
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.groupBoxPassenger.SuspendLayout();
-            this.groupBoxContact.SuspendLayout();
-            this.groupBoxGender.SuspendLayout();
-            this.groupBoxPassengerName.SuspendLayout();
-            this.groupBoxPassengerSurname.SuspendLayout();
-            this.groupBoxPassengerBirthDay.SuspendLayout();
             this.groupBoxPassengerTC.SuspendLayout();
-            this.groupBoxContactToPassenger.SuspendLayout();
-            this.groupBoxContactSurname.SuspendLayout();
-            this.groupBoxContactName.SuspendLayout();
+            this.groupBoxPassengerBirthDay.SuspendLayout();
+            this.groupBoxPassengerSurname.SuspendLayout();
+            this.groupBoxPassengerName.SuspendLayout();
+            this.groupBoxGender.SuspendLayout();
+            this.groupBoxContact.SuspendLayout();
             this.groupBoxContactPhone.SuspendLayout();
             this.groupBoxContactEmail.SuspendLayout();
+            this.groupBoxContactSurname.SuspendLayout();
+            this.groupBoxContactName.SuspendLayout();
+            this.groupBoxContactToPassenger.SuspendLayout();
             this.groupBoxContinue.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             this.buttonContinue.TabIndex = 0;
             this.buttonContinue.Text = "Devam ->";
             this.buttonContinue.UseVisualStyleBackColor = false;
-            this.buttonContinue.Click += new System.EventHandler(this.button1_Click);
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
             // groupBoxPassenger
             // 
@@ -96,105 +96,33 @@
             this.groupBoxPassenger.TabStop = false;
             this.groupBoxPassenger.Text = "Yolcu Bilgileri:";
             // 
-            // groupBoxContact
+            // groupBoxPassengerTC
             // 
-            this.groupBoxContact.Controls.Add(this.groupBoxContactPhone);
-            this.groupBoxContact.Controls.Add(this.groupBoxContactEmail);
-            this.groupBoxContact.Controls.Add(this.groupBoxContactSurname);
-            this.groupBoxContact.Controls.Add(this.groupBoxContactName);
-            this.groupBoxContact.Controls.Add(this.groupBoxContactToPassenger);
-            this.groupBoxContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxContact.ForeColor = System.Drawing.Color.White;
-            this.groupBoxContact.Location = new System.Drawing.Point(12, 291);
-            this.groupBoxContact.Name = "groupBoxContact";
-            this.groupBoxContact.Size = new System.Drawing.Size(565, 254);
-            this.groupBoxContact.TabIndex = 2;
-            this.groupBoxContact.TabStop = false;
-            this.groupBoxContact.Text = "İrtibat Bilgileri:";
+            this.groupBoxPassengerTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxPassengerTC.Controls.Add(this.maskedTextBoxTC);
+            this.groupBoxPassengerTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxPassengerTC.ForeColor = System.Drawing.Color.White;
+            this.groupBoxPassengerTC.Location = new System.Drawing.Point(285, 170);
+            this.groupBoxPassengerTC.Name = "groupBoxPassengerTC";
+            this.groupBoxPassengerTC.Size = new System.Drawing.Size(264, 67);
+            this.groupBoxPassengerTC.TabIndex = 6;
+            this.groupBoxPassengerTC.TabStop = false;
+            this.groupBoxPassengerTC.Text = "TC Kimlik Numarası:";
             // 
-            // radioButtonMale
+            // maskedTextBoxTC
             // 
-            this.radioButtonMale.AutoSize = true;
-            this.radioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioButtonMale.Location = new System.Drawing.Point(6, 23);
-            this.radioButtonMale.Name = "radioButtonMale";
-            this.radioButtonMale.Size = new System.Drawing.Size(65, 22);
-            this.radioButtonMale.TabIndex = 0;
-            this.radioButtonMale.TabStop = true;
-            this.radioButtonMale.Text = "Erkek";
-            this.radioButtonMale.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonFemale
-            // 
-            this.radioButtonFemale.AutoSize = true;
-            this.radioButtonFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioButtonFemale.Location = new System.Drawing.Point(77, 23);
-            this.radioButtonFemale.Name = "radioButtonFemale";
-            this.radioButtonFemale.Size = new System.Drawing.Size(63, 22);
-            this.radioButtonFemale.TabIndex = 1;
-            this.radioButtonFemale.TabStop = true;
-            this.radioButtonFemale.Text = "Kadın";
-            this.radioButtonFemale.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxGender
-            // 
-            this.groupBoxGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxGender.Controls.Add(this.radioButtonMale);
-            this.groupBoxGender.Controls.Add(this.radioButtonFemale);
-            this.groupBoxGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxGender.ForeColor = System.Drawing.Color.White;
-            this.groupBoxGender.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxGender.Name = "groupBoxGender";
-            this.groupBoxGender.Size = new System.Drawing.Size(264, 63);
-            this.groupBoxGender.TabIndex = 2;
-            this.groupBoxGender.TabStop = false;
-            this.groupBoxGender.Text = "Cinsiyet:";
-            // 
-            // groupBoxPassengerName
-            // 
-            this.groupBoxPassengerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxPassengerName.Controls.Add(this.textBoxPassengerName);
-            this.groupBoxPassengerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxPassengerName.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxPassengerName.Location = new System.Drawing.Point(15, 100);
-            this.groupBoxPassengerName.Name = "groupBoxPassengerName";
-            this.groupBoxPassengerName.Size = new System.Drawing.Size(264, 63);
-            this.groupBoxPassengerName.TabIndex = 3;
-            this.groupBoxPassengerName.TabStop = false;
-            this.groupBoxPassengerName.Text = "Ad:";
-            // 
-            // textBoxPassengerName
-            // 
-            this.textBoxPassengerName.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxPassengerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxPassengerName.ForeColor = System.Drawing.Color.White;
-            this.textBoxPassengerName.Location = new System.Drawing.Point(7, 23);
-            this.textBoxPassengerName.Name = "textBoxPassengerName";
-            this.textBoxPassengerName.Size = new System.Drawing.Size(251, 29);
-            this.textBoxPassengerName.TabIndex = 0;
-            // 
-            // groupBoxPassengerSurname
-            // 
-            this.groupBoxPassengerSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxPassengerSurname.Controls.Add(this.textBoxPassengerSurname);
-            this.groupBoxPassengerSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxPassengerSurname.ForeColor = System.Drawing.Color.White;
-            this.groupBoxPassengerSurname.Location = new System.Drawing.Point(285, 100);
-            this.groupBoxPassengerSurname.Name = "groupBoxPassengerSurname";
-            this.groupBoxPassengerSurname.Size = new System.Drawing.Size(264, 63);
-            this.groupBoxPassengerSurname.TabIndex = 4;
-            this.groupBoxPassengerSurname.TabStop = false;
-            this.groupBoxPassengerSurname.Text = "Soyad:";
-            // 
-            // textBoxPassengerSurname
-            // 
-            this.textBoxPassengerSurname.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxPassengerSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxPassengerSurname.ForeColor = System.Drawing.Color.White;
-            this.textBoxPassengerSurname.Location = new System.Drawing.Point(6, 23);
-            this.textBoxPassengerSurname.Name = "textBoxPassengerSurname";
-            this.textBoxPassengerSurname.Size = new System.Drawing.Size(251, 29);
-            this.textBoxPassengerSurname.TabIndex = 1;
+            this.maskedTextBoxTC.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.maskedTextBoxTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.maskedTextBoxTC.ForeColor = System.Drawing.Color.White;
+            this.maskedTextBoxTC.Location = new System.Drawing.Point(7, 24);
+            this.maskedTextBoxTC.Mask = "00000000000";
+            this.maskedTextBoxTC.Name = "maskedTextBoxTC";
+            this.maskedTextBoxTC.PromptChar = ' ';
+            this.maskedTextBoxTC.Size = new System.Drawing.Size(250, 29);
+            this.maskedTextBoxTC.TabIndex = 0;
+            this.maskedTextBoxTC.ValidatingType = typeof(int);
+            this.maskedTextBoxTC.Enter += new System.EventHandler(this.textBoxPassenger_Enter);
+            this.maskedTextBoxTC.Leave += new System.EventHandler(this.textBoxPassenger_Leave);
             // 
             // groupBoxPassengerBirthDay
             // 
@@ -221,104 +149,114 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(251, 31);
             this.dateTimePicker1.TabIndex = 0;
             // 
-            // groupBoxPassengerTC
+            // groupBoxPassengerSurname
             // 
-            this.groupBoxPassengerTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxPassengerTC.Controls.Add(this.maskedTextBox1);
-            this.groupBoxPassengerTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxPassengerTC.ForeColor = System.Drawing.Color.White;
-            this.groupBoxPassengerTC.Location = new System.Drawing.Point(285, 170);
-            this.groupBoxPassengerTC.Name = "groupBoxPassengerTC";
-            this.groupBoxPassengerTC.Size = new System.Drawing.Size(264, 67);
-            this.groupBoxPassengerTC.TabIndex = 6;
-            this.groupBoxPassengerTC.TabStop = false;
-            this.groupBoxPassengerTC.Text = "TC Kimlik Numarası:";
+            this.groupBoxPassengerSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxPassengerSurname.Controls.Add(this.textBoxPassengerSurname);
+            this.groupBoxPassengerSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxPassengerSurname.ForeColor = System.Drawing.Color.White;
+            this.groupBoxPassengerSurname.Location = new System.Drawing.Point(285, 100);
+            this.groupBoxPassengerSurname.Name = "groupBoxPassengerSurname";
+            this.groupBoxPassengerSurname.Size = new System.Drawing.Size(264, 63);
+            this.groupBoxPassengerSurname.TabIndex = 4;
+            this.groupBoxPassengerSurname.TabStop = false;
+            this.groupBoxPassengerSurname.Text = "Soyad:";
             // 
-            // maskedTextBox1
+            // textBoxPassengerSurname
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.maskedTextBox1.ForeColor = System.Drawing.Color.White;
-            this.maskedTextBox1.Location = new System.Drawing.Point(7, 24);
-            this.maskedTextBox1.Mask = "00000000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.PromptChar = ' ';
-            this.maskedTextBox1.Size = new System.Drawing.Size(250, 29);
-            this.maskedTextBox1.TabIndex = 0;
-            this.maskedTextBox1.ValidatingType = typeof(int);
+            this.textBoxPassengerSurname.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxPassengerSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxPassengerSurname.ForeColor = System.Drawing.Color.White;
+            this.textBoxPassengerSurname.Location = new System.Drawing.Point(6, 23);
+            this.textBoxPassengerSurname.Name = "textBoxPassengerSurname";
+            this.textBoxPassengerSurname.Size = new System.Drawing.Size(251, 29);
+            this.textBoxPassengerSurname.TabIndex = 1;
+            this.textBoxPassengerSurname.Enter += new System.EventHandler(this.textBoxPassenger_Enter);
+            this.textBoxPassengerSurname.Leave += new System.EventHandler(this.textBoxPassenger_Leave);
             // 
-            // comboBox1
+            // groupBoxPassengerName
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 32);
-            this.comboBox1.TabIndex = 0;
+            this.groupBoxPassengerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxPassengerName.Controls.Add(this.textBoxPassengerName);
+            this.groupBoxPassengerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxPassengerName.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxPassengerName.Location = new System.Drawing.Point(15, 100);
+            this.groupBoxPassengerName.Name = "groupBoxPassengerName";
+            this.groupBoxPassengerName.Size = new System.Drawing.Size(264, 63);
+            this.groupBoxPassengerName.TabIndex = 3;
+            this.groupBoxPassengerName.TabStop = false;
+            this.groupBoxPassengerName.Text = "Ad:";
             // 
-            // groupBoxContactToPassenger
+            // textBoxPassengerName
             // 
-            this.groupBoxContactToPassenger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxContactToPassenger.Controls.Add(this.comboBox1);
-            this.groupBoxContactToPassenger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxContactToPassenger.ForeColor = System.Drawing.Color.White;
-            this.groupBoxContactToPassenger.Location = new System.Drawing.Point(15, 43);
-            this.groupBoxContactToPassenger.Name = "groupBoxContactToPassenger";
-            this.groupBoxContactToPassenger.Size = new System.Drawing.Size(264, 63);
-            this.groupBoxContactToPassenger.TabIndex = 1;
-            this.groupBoxContactToPassenger.TabStop = false;
-            this.groupBoxContactToPassenger.Text = "İrtibata Geçilecek Yolcu:";
+            this.textBoxPassengerName.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxPassengerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxPassengerName.ForeColor = System.Drawing.Color.White;
+            this.textBoxPassengerName.Location = new System.Drawing.Point(7, 23);
+            this.textBoxPassengerName.Name = "textBoxPassengerName";
+            this.textBoxPassengerName.Size = new System.Drawing.Size(251, 29);
+            this.textBoxPassengerName.TabIndex = 0;
+            this.textBoxPassengerName.Enter += new System.EventHandler(this.textBoxPassenger_Enter);
+            this.textBoxPassengerName.Leave += new System.EventHandler(this.textBoxPassenger_Leave);
             // 
-            // groupBoxContactSurname
+            // groupBoxGender
             // 
-            this.groupBoxContactSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxContactSurname.Controls.Add(this.textBox1);
-            this.groupBoxContactSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxContactSurname.ForeColor = System.Drawing.Color.White;
-            this.groupBoxContactSurname.Location = new System.Drawing.Point(285, 112);
-            this.groupBoxContactSurname.Name = "groupBoxContactSurname";
-            this.groupBoxContactSurname.Size = new System.Drawing.Size(264, 63);
-            this.groupBoxContactSurname.TabIndex = 6;
-            this.groupBoxContactSurname.TabStop = false;
-            this.groupBoxContactSurname.Text = "Soyad:";
+            this.groupBoxGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxGender.Controls.Add(this.radioButtonMale);
+            this.groupBoxGender.Controls.Add(this.radioButtonFemale);
+            this.groupBoxGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxGender.ForeColor = System.Drawing.Color.White;
+            this.groupBoxGender.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxGender.Name = "groupBoxGender";
+            this.groupBoxGender.Size = new System.Drawing.Size(264, 63);
+            this.groupBoxGender.TabIndex = 2;
+            this.groupBoxGender.TabStop = false;
+            this.groupBoxGender.Text = "Cinsiyet:";
             // 
-            // textBox1
+            // radioButtonMale
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(6, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 29);
-            this.textBox1.TabIndex = 1;
+            this.radioButtonMale.AutoSize = true;
+            this.radioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButtonMale.Location = new System.Drawing.Point(6, 23);
+            this.radioButtonMale.Name = "radioButtonMale";
+            this.radioButtonMale.Size = new System.Drawing.Size(65, 22);
+            this.radioButtonMale.TabIndex = 0;
+            this.radioButtonMale.TabStop = true;
+            this.radioButtonMale.Text = "Erkek";
+            this.radioButtonMale.UseVisualStyleBackColor = true;
             // 
-            // groupBoxContactName
+            // radioButtonFemale
             // 
-            this.groupBoxContactName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxContactName.Controls.Add(this.textBox2);
-            this.groupBoxContactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBoxContactName.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxContactName.Location = new System.Drawing.Point(15, 112);
-            this.groupBoxContactName.Name = "groupBoxContactName";
-            this.groupBoxContactName.Size = new System.Drawing.Size(264, 63);
-            this.groupBoxContactName.TabIndex = 5;
-            this.groupBoxContactName.TabStop = false;
-            this.groupBoxContactName.Text = "Ad:";
+            this.radioButtonFemale.AutoSize = true;
+            this.radioButtonFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButtonFemale.Location = new System.Drawing.Point(77, 23);
+            this.radioButtonFemale.Name = "radioButtonFemale";
+            this.radioButtonFemale.Size = new System.Drawing.Size(63, 22);
+            this.radioButtonFemale.TabIndex = 1;
+            this.radioButtonFemale.TabStop = true;
+            this.radioButtonFemale.Text = "Kadın";
+            this.radioButtonFemale.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // groupBoxContact
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(7, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 29);
-            this.textBox2.TabIndex = 0;
+            this.groupBoxContact.Controls.Add(this.groupBoxContactPhone);
+            this.groupBoxContact.Controls.Add(this.groupBoxContactEmail);
+            this.groupBoxContact.Controls.Add(this.groupBoxContactSurname);
+            this.groupBoxContact.Controls.Add(this.groupBoxContactName);
+            this.groupBoxContact.Controls.Add(this.groupBoxContactToPassenger);
+            this.groupBoxContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxContact.ForeColor = System.Drawing.Color.White;
+            this.groupBoxContact.Location = new System.Drawing.Point(12, 291);
+            this.groupBoxContact.Name = "groupBoxContact";
+            this.groupBoxContact.Size = new System.Drawing.Size(565, 254);
+            this.groupBoxContact.TabIndex = 2;
+            this.groupBoxContact.TabStop = false;
+            this.groupBoxContact.Text = "İrtibat Bilgileri:";
             // 
             // groupBoxContactPhone
             // 
             this.groupBoxContactPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxContactPhone.Controls.Add(this.maskedTextBox2);
+            this.groupBoxContactPhone.Controls.Add(this.maskedTextBoxContactPhone);
             this.groupBoxContactPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBoxContactPhone.ForeColor = System.Drawing.Color.White;
             this.groupBoxContactPhone.Location = new System.Drawing.Point(285, 181);
@@ -328,10 +266,22 @@
             this.groupBoxContactPhone.TabStop = false;
             this.groupBoxContactPhone.Text = "Telefon:";
             // 
+            // maskedTextBoxContactPhone
+            // 
+            this.maskedTextBoxContactPhone.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.maskedTextBoxContactPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.maskedTextBoxContactPhone.ForeColor = System.Drawing.Color.White;
+            this.maskedTextBoxContactPhone.Location = new System.Drawing.Point(6, 23);
+            this.maskedTextBoxContactPhone.Mask = "(999) 000-0000";
+            this.maskedTextBoxContactPhone.Name = "maskedTextBoxContactPhone";
+            this.maskedTextBoxContactPhone.PromptChar = ' ';
+            this.maskedTextBoxContactPhone.Size = new System.Drawing.Size(251, 29);
+            this.maskedTextBoxContactPhone.TabIndex = 1;
+            // 
             // groupBoxContactEmail
             // 
             this.groupBoxContactEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.groupBoxContactEmail.Controls.Add(this.textBox4);
+            this.groupBoxContactEmail.Controls.Add(this.textBoxContactEmail);
             this.groupBoxContactEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBoxContactEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBoxContactEmail.Location = new System.Drawing.Point(15, 181);
@@ -341,27 +291,84 @@
             this.groupBoxContactEmail.TabStop = false;
             this.groupBoxContactEmail.Text = "E-Mail:";
             // 
-            // textBox4
+            // textBoxContactEmail
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(7, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 29);
-            this.textBox4.TabIndex = 0;
+            this.textBoxContactEmail.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxContactEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxContactEmail.ForeColor = System.Drawing.Color.White;
+            this.textBoxContactEmail.Location = new System.Drawing.Point(7, 23);
+            this.textBoxContactEmail.Name = "textBoxContactEmail";
+            this.textBoxContactEmail.Size = new System.Drawing.Size(251, 29);
+            this.textBoxContactEmail.TabIndex = 0;
             // 
-            // maskedTextBox2
+            // groupBoxContactSurname
             // 
-            this.maskedTextBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.maskedTextBox2.ForeColor = System.Drawing.Color.White;
-            this.maskedTextBox2.Location = new System.Drawing.Point(6, 23);
-            this.maskedTextBox2.Mask = "(999) 000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.PromptChar = ' ';
-            this.maskedTextBox2.Size = new System.Drawing.Size(251, 29);
-            this.maskedTextBox2.TabIndex = 1;
+            this.groupBoxContactSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxContactSurname.Controls.Add(this.textBoxContactSurname);
+            this.groupBoxContactSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxContactSurname.ForeColor = System.Drawing.Color.White;
+            this.groupBoxContactSurname.Location = new System.Drawing.Point(285, 112);
+            this.groupBoxContactSurname.Name = "groupBoxContactSurname";
+            this.groupBoxContactSurname.Size = new System.Drawing.Size(264, 63);
+            this.groupBoxContactSurname.TabIndex = 6;
+            this.groupBoxContactSurname.TabStop = false;
+            this.groupBoxContactSurname.Text = "Soyad:";
+            // 
+            // textBoxContactSurname
+            // 
+            this.textBoxContactSurname.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxContactSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxContactSurname.ForeColor = System.Drawing.Color.White;
+            this.textBoxContactSurname.Location = new System.Drawing.Point(6, 23);
+            this.textBoxContactSurname.Name = "textBoxContactSurname";
+            this.textBoxContactSurname.Size = new System.Drawing.Size(251, 29);
+            this.textBoxContactSurname.TabIndex = 1;
+            // 
+            // groupBoxContactName
+            // 
+            this.groupBoxContactName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxContactName.Controls.Add(this.textBoxContactName);
+            this.groupBoxContactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxContactName.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxContactName.Location = new System.Drawing.Point(15, 112);
+            this.groupBoxContactName.Name = "groupBoxContactName";
+            this.groupBoxContactName.Size = new System.Drawing.Size(264, 63);
+            this.groupBoxContactName.TabIndex = 5;
+            this.groupBoxContactName.TabStop = false;
+            this.groupBoxContactName.Text = "Ad:";
+            // 
+            // textBoxContactName
+            // 
+            this.textBoxContactName.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxContactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxContactName.ForeColor = System.Drawing.Color.White;
+            this.textBoxContactName.Location = new System.Drawing.Point(7, 23);
+            this.textBoxContactName.Name = "textBoxContactName";
+            this.textBoxContactName.Size = new System.Drawing.Size(251, 29);
+            this.textBoxContactName.TabIndex = 0;
+            // 
+            // groupBoxContactToPassenger
+            // 
+            this.groupBoxContactToPassenger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.groupBoxContactToPassenger.Controls.Add(this.comboBoxContacts);
+            this.groupBoxContactToPassenger.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBoxContactToPassenger.ForeColor = System.Drawing.Color.White;
+            this.groupBoxContactToPassenger.Location = new System.Drawing.Point(15, 43);
+            this.groupBoxContactToPassenger.Name = "groupBoxContactToPassenger";
+            this.groupBoxContactToPassenger.Size = new System.Drawing.Size(264, 63);
+            this.groupBoxContactToPassenger.TabIndex = 1;
+            this.groupBoxContactToPassenger.TabStop = false;
+            this.groupBoxContactToPassenger.Text = "İrtibata Geçilecek Yolcu:";
+            // 
+            // comboBoxContacts
+            // 
+            this.comboBoxContacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBoxContacts.FormattingEnabled = true;
+            this.comboBoxContacts.Location = new System.Drawing.Point(7, 23);
+            this.comboBoxContacts.Name = "comboBoxContacts";
+            this.comboBoxContacts.Size = new System.Drawing.Size(250, 32);
+            this.comboBoxContacts.TabIndex = 0;
+            this.comboBoxContacts.SelectedIndexChanged += new System.EventHandler(this.comboBoxContacts_SelectedIndexChanged);
             // 
             // groupBoxContinue
             // 
@@ -399,25 +406,25 @@
             this.Text = "FormPassengerInfo";
             this.Load += new System.EventHandler(this.FormPassengerInfo_Load);
             this.groupBoxPassenger.ResumeLayout(false);
-            this.groupBoxContact.ResumeLayout(false);
-            this.groupBoxGender.ResumeLayout(false);
-            this.groupBoxGender.PerformLayout();
-            this.groupBoxPassengerName.ResumeLayout(false);
-            this.groupBoxPassengerName.PerformLayout();
-            this.groupBoxPassengerSurname.ResumeLayout(false);
-            this.groupBoxPassengerSurname.PerformLayout();
-            this.groupBoxPassengerBirthDay.ResumeLayout(false);
             this.groupBoxPassengerTC.ResumeLayout(false);
             this.groupBoxPassengerTC.PerformLayout();
-            this.groupBoxContactToPassenger.ResumeLayout(false);
-            this.groupBoxContactSurname.ResumeLayout(false);
-            this.groupBoxContactSurname.PerformLayout();
-            this.groupBoxContactName.ResumeLayout(false);
-            this.groupBoxContactName.PerformLayout();
+            this.groupBoxPassengerBirthDay.ResumeLayout(false);
+            this.groupBoxPassengerSurname.ResumeLayout(false);
+            this.groupBoxPassengerSurname.PerformLayout();
+            this.groupBoxPassengerName.ResumeLayout(false);
+            this.groupBoxPassengerName.PerformLayout();
+            this.groupBoxGender.ResumeLayout(false);
+            this.groupBoxGender.PerformLayout();
+            this.groupBoxContact.ResumeLayout(false);
             this.groupBoxContactPhone.ResumeLayout(false);
             this.groupBoxContactPhone.PerformLayout();
             this.groupBoxContactEmail.ResumeLayout(false);
             this.groupBoxContactEmail.PerformLayout();
+            this.groupBoxContactSurname.ResumeLayout(false);
+            this.groupBoxContactSurname.PerformLayout();
+            this.groupBoxContactName.ResumeLayout(false);
+            this.groupBoxContactName.PerformLayout();
+            this.groupBoxContactToPassenger.ResumeLayout(false);
             this.groupBoxContinue.ResumeLayout(false);
             this.groupBoxContinue.PerformLayout();
             this.ResumeLayout(false);
@@ -439,17 +446,17 @@
         private System.Windows.Forms.TextBox textBoxPassengerName;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBoxPassengerTC;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTC;
+        private System.Windows.Forms.ComboBox comboBoxContacts;
         private System.Windows.Forms.GroupBox groupBoxContactPhone;
         private System.Windows.Forms.GroupBox groupBoxContactEmail;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxContactEmail;
         private System.Windows.Forms.GroupBox groupBoxContactSurname;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxContactSurname;
         private System.Windows.Forms.GroupBox groupBoxContactName;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxContactName;
         private System.Windows.Forms.GroupBox groupBoxContactToPassenger;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxContactPhone;
         private System.Windows.Forms.GroupBox groupBoxContinue;
         private System.Windows.Forms.Label labelTotalPrice;
     }

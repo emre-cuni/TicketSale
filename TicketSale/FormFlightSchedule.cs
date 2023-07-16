@@ -29,6 +29,7 @@ namespace TicketSale
         string departureAirport = null, arrivalAirport = null, query = null, departureDate = null, arrivalDate = null, flightTime = null;
         string[] flight;
         int adult = 0, youth = 0, child = 0, flightsCount = 0, flightId = -1, totalPassenger = 0, passengerCapacity = 0;
+        double price = 0;
         List<Tuple<int, string, string, DateTime, DateTime, int, double>> flights = new List<Tuple<int, string, string, DateTime, DateTime, int, double>>();
         Panel panel;
         Label labelDepartureTime, labelArrivalTime, labelFlightTime, labelPrice;
@@ -177,11 +178,14 @@ namespace TicketSale
                 foreach(var item in flights)
                 {
                     if (item.Item1 == flightId)
+                    {
                         passengerCapacity = item.Item6;
+                        price = item.Item7;
+                    }
                 }
 
                 Hide();
-                formPassengerInfo = new FormPassengerInfo(int.Parse(panel.Tag.ToString()), totalPassenger, passengerCapacity);
+                formPassengerInfo = new FormPassengerInfo(int.Parse(panel.Tag.ToString()), totalPassenger, passengerCapacity, price);
                 formPassengerInfo.ShowDialog();
                 Show();
             }

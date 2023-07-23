@@ -47,7 +47,7 @@ namespace TicketSale
         {
             try
             {
-                if(!passengerControl)
+                if (!passengerControl)
                 {
                     textBoxPassengerName.Text = string.Empty;
                     textBoxPassengerSurname.Text = string.Empty;
@@ -65,10 +65,10 @@ namespace TicketSale
         {
             try
             {
-                if(comboBoxContacts.SelectedIndex != -1)
+                if (comboBoxContacts.SelectedIndex != -1)
                 {
                     textBoxContactName.Text = comboBoxContacts.SelectedItem.ToString().Substring(0, comboBoxContacts.SelectedItem.ToString().IndexOf(" "));
-                    textBoxContactSurname.Text = comboBoxContacts.SelectedItem.ToString().Substring( comboBoxContacts.SelectedItem.ToString().IndexOf(" ") + 1);
+                    textBoxContactSurname.Text = comboBoxContacts.SelectedItem.ToString().Substring(comboBoxContacts.SelectedItem.ToString().IndexOf(" ") + 1);
                 }
             }
             catch (Exception ex)
@@ -81,15 +81,23 @@ namespace TicketSale
         {
             try
             {
-                passengerCapacity = passengerCapacity - passengerCount;
+                FormSeatSelection formSeatSelection = new FormSeatSelection(passengerCount);
+                formSeatSelection.ShowDialog();
+                if (comboBoxContacts.SelectedIndex != -1 && textBoxContactEmail.Text != string.Empty && maskedTextBoxContactPhone.Text != string.Empty)
+                    goto finish;
+
+                /*** Ödeme ekranını ekle ***/
+
+                passengerCapacity -= passengerCount; //!!!
+
                 // seçilen yolcu sayısı kadar yeri uçuş kapasitesinden düşürmek
-                //UPDATE Table_Flights SET passengerCapacity = 61 WHERE id = 47;
                 query = $"UPDATE Table_Flights SET passengerCapacity = {passengerCapacity} WHERE id = {flightId}";
 
                 if (sqlProcess.UpdateCapacity(query))
                     MessageBox.Show("kapasite güncellendi");
                 else
                     MessageBox.Show("kapasite güncellenemedi");
+                finish:;
             }
             catch (Exception ex)
             {
@@ -101,7 +109,7 @@ namespace TicketSale
         {
             try
             {
-                labelTotalPrice.Text = "Toplam: " + (price * passengerCount) +"₺";
+                labelTotalPrice.Text = "Toplam: " + (price * passengerCount) + "₺";
             }
             catch (Exception ex)
             {

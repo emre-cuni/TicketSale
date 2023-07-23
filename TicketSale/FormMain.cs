@@ -21,6 +21,7 @@ namespace TicketSale
         string query = null, swap = null, departureAirport = null, arrivalAirport = null, departureDate = null, arrivalDate = null;
         Dictionary<string, Tuple<string, string>> airports = new Dictionary<string, Tuple<string, string>>();
         int adult = 0, youth = 0, child = 0, totalTraveller = 0;
+
         FormFlightSchedule flightSchedule;
 
         private void FormMain_Load(object sender, EventArgs e)

@@ -39,3 +39,9 @@
 * Girilen TC'nin doðru formatta olup olmadýðýný kontrol et
 * Girilen TC'nin daha önce girilen yolcunun TC'siyle ayný olup olmadýðýný kontrol et
 * Genç ve Bebek yolcular için fiyat düzenlemesi yap
+* Mail textbox'ýnda "@" kontrolü ekle
+
+23.07.2023
+* Koltuk seçiminde iptal seçeneði sun
+* Birden fazla yolcu olduðunda yolcu bilgileri kýsmýný arttýr
+* Koltuk seçiminde seçilen yolcu sayýsý kadar koltuk seçtir

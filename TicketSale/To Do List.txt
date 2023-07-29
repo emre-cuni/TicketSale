@@ -45,3 +45,9 @@
 * Koltuk seçiminde iptal seçeneði sun
 * Birden fazla yolcu olduðunda yolcu bilgileri kýsmýný arttýr
 * Koltuk seçiminde seçilen yolcu sayýsý kadar koltuk seçtir
+
+29.07.2023
+* Koltuk seçimi yapýlmazsa rastgele boþta olan bir koltuk ata
+* Koltuk seçiminde dolu olan iþaretle
+* Uçuþlarý saate ve fiyata göre sýralama seçenekleri sun
+* Birden fazla yolcu seçildiðinde "FormPassengerInfo"da diðer yolcularýn bilgilerini de al

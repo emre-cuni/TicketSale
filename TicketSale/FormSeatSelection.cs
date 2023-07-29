@@ -28,9 +28,6 @@ namespace TicketSale
             try
             {
                 AddSeat();
-
-                // Acil Çıkış koltuklarını düzenle
-
             }
             catch (Exception ex)
             {
@@ -42,13 +39,13 @@ namespace TicketSale
         {
             try
             {
-                foreach (Control control in panelSeatSelection.Controls)
+                foreach (Control control in panelSeatSelection.Controls) // koltukların olduğu paneldeki bütün tool'lar dönülür
                 {
                     PictureBox pictureBoxControl;
                     try
                     {
-                        pictureBoxControl = (PictureBox)control;
-                        if (pictureBoxControl.Name == selectedSeatName)
+                        pictureBoxControl = (PictureBox)control; // picturebox olanlar picturebox nesnesine atanır
+                        if (pictureBoxControl.Name == selectedSeatName) // bir önceki seçilen koltuğa default değeri atanır.
                         {
                             if ((pictureBoxControl.Name.LastIndexOf("A") >= 11 || pictureBoxControl.Name.LastIndexOf("F") >= 11) && (pictureBoxControl.Name.LastIndexOf("15") == -1 && pictureBoxControl.Name.LastIndexOf("16") == -1))
                                 pictureBoxControl.Image = imageListSeats.Images[0];
@@ -68,7 +65,7 @@ namespace TicketSale
                 }
 
                 PictureBox pictureBox = (PictureBox)sender;
-                if (pictureBox.Image.Tag != null && !(bool)pictureBox.Image.Tag)
+                if (pictureBox.Image.Tag != null && !(bool)pictureBox.Image.Tag) // koltuk boşsa seçili koltuk iconu picturebox'a atanır ve tag değerine dolu değeri verilir
                 {
                     pictureBox.Image = imageListSeats.Images[6];
                     pictureBox.Image.Tag = true;
@@ -160,7 +157,6 @@ namespace TicketSale
                         AddSeatPicture($"pictureBox{i}E", x1, 208, 1);
                         AddSeatPicture($"pictureBox{i}F", x1, 241, 0);
                     }
-
 
                     x1 += 33;
                     if (i == 9)

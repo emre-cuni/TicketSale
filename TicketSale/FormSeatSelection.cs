@@ -42,30 +42,39 @@ namespace TicketSale
         {
             try
             {
-                //AddSeat();
+                foreach (Control control in panelSeatSelection.Controls)
+                {
+                    PictureBox pictureBoxControl;
+                    try
+                    {
+                        pictureBoxControl = (PictureBox)control;
+                        if (pictureBoxControl.Name == selectedSeatName)
+                        {
+                            if ((pictureBoxControl.Name.LastIndexOf("A") >= 11 || pictureBoxControl.Name.LastIndexOf("F") >= 11) && (pictureBoxControl.Name.LastIndexOf("15") == -1 && pictureBoxControl.Name.LastIndexOf("16") == -1))
+                                pictureBoxControl.Image = imageListSeats.Images[0];
+                            else if ((pictureBoxControl.Name.LastIndexOf("B") >= 11 || pictureBoxControl.Name.LastIndexOf("E") >= 11) && (pictureBoxControl.Name.LastIndexOf("15") == -1 && pictureBoxControl.Name.LastIndexOf("16") == -1))
+                                pictureBoxControl.Image = imageListSeats.Images[1];
+                            else if ((pictureBoxControl.Name.LastIndexOf("C") >= 11 || pictureBoxControl.Name.LastIndexOf("D") >= 11) && (pictureBoxControl.Name.LastIndexOf("15") == -1 && pictureBoxControl.Name.LastIndexOf("16") == -1))
+                                pictureBoxControl.Image = imageListSeats.Images[2];
+                            else
+                                pictureBoxControl.Image = imageListSeats.Images[3];
+                            pictureBoxControl.Image.Tag = false;
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
 
                 PictureBox pictureBox = (PictureBox)sender;
-                //if(selectedSeatName == null)
-                //{
-                //    foreach (var item in panelSeatSelection.Controls)
-                //    {
-                //        panelSeatSelection.Controls.Find()
-
-                //    }
-                //}
-
-                /*
-                    1 defa koltuk seçtikten sonra aynı ekranda koltuğu değiştirmeyi ekle
-                 */
-
-                if (pictureBox.Image != imageListSeats.Images[6] && selectedSeatCount < passengerCount)
+                if (pictureBox.Image.Tag != null && !(bool)pictureBox.Image.Tag)
                 {
                     pictureBox.Image = imageListSeats.Images[6];
+                    pictureBox.Image.Tag = true;
                     selectedSeatName = pictureBox.Name;
                     selectedSeatCount++;
                 }
-                MessageBox.Show(selectedSeatCount + "\n" + pictureBox.Name);
-
             }
             catch (Exception ex)
             {
@@ -100,6 +109,7 @@ namespace TicketSale
                 pictureBox.Image = imageListSeats.Images[imageIndex];
                 pictureBox.Location = new Point(x, y);
                 pictureBox.Click += SeatSelection_Click;
+                pictureBox.Image.Tag = false;
                 panelSeatSelection.Controls.Add(pictureBox);
             }
             catch (Exception ex)
@@ -131,12 +141,6 @@ namespace TicketSale
                         labelSize = 24;
 
                     AddLabel(i.ToString(), x2, 147, labelSize);
-                    //label = new Label();
-                    //label.Text = i.ToString();
-                    //label.Location = new Point(x2, 147);
-                    //label.Size = new Size(labelSize, 18);
-                    //label.Name = $"label{i}";
-                    //panelSeatSelection.Controls.Add(label);
 
                     if (i == 15 || i == 16)
                     {
@@ -157,56 +161,6 @@ namespace TicketSale
                         AddSeatPicture($"pictureBox{i}F", x1, 241, 0);
                     }
 
-                    {
-                        //pictureBox = new PictureBox();
-                        //pictureBox.Size = new Size(25, 25);
-                        //pictureBox.Name = $"pictureBox{i}A";
-                        //pictureBox.Image = imageListSeats.Images[0];
-                        //pictureBox.Location = new Point(x1, 45);
-                        //pictureBox.Tag = $"pictureBox{i}A";
-                        //pictureBox.Click += SeatSelection_Click;
-                        //panelSeatSelection.Controls.Add(pictureBox);
-
-                        //pictureBox = new PictureBox();
-                        //pictureBox.Size = new Size(25, 25);
-                        //pictureBox.Name = $"pictureBox{i}B";
-                        //pictureBox.Image = imageListSeats.Images[1];
-                        //pictureBox.Location = new Point(x1, 78);
-                        //pictureBox.Click += SeatSelection_Click;
-                        //panelSeatSelection.Controls.Add(pictureBox);
-
-                        //pictureBox = new PictureBox();
-                        //pictureBox.Size = new Size(25, 25);
-                        //pictureBox.Name = $"pictureBox{i}C";
-                        //pictureBox.Image = imageListSeats.Images[2];
-                        //pictureBox.Location = new Point(x1, 111);
-                        //pictureBox.Click += SeatSelection_Click;
-                        //panelSeatSelection.Controls.Add(pictureBox);
-
-                        //pictureBox = new PictureBox();
-                        //pictureBox.Size = new Size(25, 25);
-                        //pictureBox.Name = $"pictureBox{i}D";
-                        //pictureBox.Image = imageListSeats.Images[2];
-                        //pictureBox.Location = new Point(x1, 175);
-                        //pictureBox.Click += SeatSelection_Click;
-                        //panelSeatSelection.Controls.Add(pictureBox);
-
-                        //pictureBox = new PictureBox();
-                        //pictureBox.Size = new Size(25, 25);
-                        //pictureBox.Name = $"pictureBox{i}E";
-                        //pictureBox.Image = imageListSeats.Images[1];
-                        //pictureBox.Location = new Point(x1, 208);
-                        //pictureBox.Click += SeatSelection_Click;
-                        //panelSeatSelection.Controls.Add(pictureBox);
-
-                        //pictureBox = new PictureBox();
-                        //pictureBox.Size = new Size(25, 25);
-                        //pictureBox.Name = $"pictureBox{i}F";
-                        //pictureBox.Image = imageListSeats.Images[0];
-                        //pictureBox.Location = new Point(x1, 241);
-                        //pictureBox.Click += SeatSelection_Click;
-                        //panelSeatSelection.Controls.Add(pictureBox);
-                    }
 
                     x1 += 33;
                     if (i == 9)

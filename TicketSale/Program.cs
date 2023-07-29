@@ -16,7 +16,8 @@ namespace TicketSale
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSeatSelection(1));
+            Application.Run(new FormMain());
+            //Application.Run(new FormSeatSelection(1));
         }
     }
 }

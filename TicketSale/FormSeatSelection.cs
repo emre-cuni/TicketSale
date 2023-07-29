@@ -102,11 +102,11 @@ namespace TicketSale
             {
                 pictureBox = new PictureBox();
                 pictureBox.Size = new Size(25, 25);
-                pictureBox.Name = name;//$"pictureBox{i}B";
+                pictureBox.Name = name;
                 pictureBox.Image = imageListSeats.Images[imageIndex];
                 pictureBox.Location = new Point(x, y);
-                pictureBox.Click += SeatSelection_Click;
                 pictureBox.Image.Tag = false;
+                pictureBox.Click += SeatSelection_Click;
                 panelSeatSelection.Controls.Add(pictureBox);
             }
             catch (Exception ex)

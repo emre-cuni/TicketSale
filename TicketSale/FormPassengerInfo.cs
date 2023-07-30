@@ -25,7 +25,19 @@ namespace TicketSale
         double price = 0;
         string query = null;
         SqlProcess sqlProcess = new SqlProcess();
-        bool passengerControl = true;
+        bool passengerControl = true;        
+
+        private void FormPassengerInfo_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                labelTotalPrice.Text = "Toplam: " + (price * passengerCount) + "₺";               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Load Hatası");
+            }
+        }
 
         private void textBoxPassenger_Leave(object sender, EventArgs e) // eklenen yolcuları iletişim için combobox'a ekler
         {
@@ -102,18 +114,6 @@ namespace TicketSale
             catch (Exception ex)
             {
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace);
-            }
-        }
-
-        private void FormPassengerInfo_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                labelTotalPrice.Text = "Toplam: " + (price * passengerCount) + "₺";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Load Hatası");
             }
         }
     }

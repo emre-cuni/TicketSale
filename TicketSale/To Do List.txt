@@ -51,3 +51,7 @@
 * Koltuk seçiminde dolu olan iþaretle
 * Uçuþlarý saate ve fiyata göre sýralama seçenekleri sun
 * Birden fazla yolcu seçildiðinde "FormPassengerInfo"da diðer yolcularýn bilgilerini de al
+
+30.07.2023
+* groupBoxPassenger'ýn konumunu düzelt
+* PassengerInfo_Load'ý metoda aktar

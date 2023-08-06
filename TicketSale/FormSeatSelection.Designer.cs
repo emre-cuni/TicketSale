@@ -67,12 +67,21 @@
             this.labelC = new System.Windows.Forms.Label();
             this.labelB = new System.Windows.Forms.Label();
             this.labelA = new System.Windows.Forms.Label();
+            this.panelPassengers = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelSeatInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCorridor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWindowSill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.panelSeatSelection.SuspendLayout();
+            this.panelPassengers.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSeatInfo
@@ -94,11 +103,11 @@
             this.panelSeatInfo.Controls.Add(this.labelExitPrice);
             this.panelSeatInfo.Controls.Add(this.labelExit);
             this.panelSeatInfo.Controls.Add(this.pictureBoxExit);
-            this.panelSeatInfo.Location = new System.Drawing.Point(18, 18);
+            this.panelSeatInfo.Location = new System.Drawing.Point(12, 226);
             this.panelSeatInfo.Margin = new System.Windows.Forms.Padding(4);
             this.panelSeatInfo.Name = "panelSeatInfo";
-            this.panelSeatInfo.Size = new System.Drawing.Size(1350, 146);
-            this.panelSeatInfo.TabIndex = 0;
+            this.panelSeatInfo.Size = new System.Drawing.Size(1290, 146);
+            this.panelSeatInfo.TabIndex = 1;
             // 
             // labelCorridorDetail
             // 
@@ -292,10 +301,11 @@
             this.panelSeatSelection.Controls.Add(this.labelC);
             this.panelSeatSelection.Controls.Add(this.labelB);
             this.panelSeatSelection.Controls.Add(this.labelA);
-            this.panelSeatSelection.Location = new System.Drawing.Point(19, 173);
+            this.panelSeatSelection.Location = new System.Drawing.Point(13, 381);
+            this.panelSeatSelection.Margin = new System.Windows.Forms.Padding(4);
             this.panelSeatSelection.Name = "panelSeatSelection";
-            this.panelSeatSelection.Size = new System.Drawing.Size(1350, 394);
-            this.panelSeatSelection.TabIndex = 1;
+            this.panelSeatSelection.Size = new System.Drawing.Size(1289, 368);
+            this.panelSeatSelection.TabIndex = 2;
             // 
             // label6
             // 
@@ -473,12 +483,90 @@
             this.labelA.TabIndex = 0;
             this.labelA.Text = "A";
             // 
+            // panelPassengers
+            // 
+            this.panelPassengers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.panelPassengers.Controls.Add(this.panel2);
+            this.panelPassengers.Controls.Add(this.panel1);
+            this.panelPassengers.Location = new System.Drawing.Point(13, 13);
+            this.panelPassengers.Margin = new System.Windows.Forms.Padding(4);
+            this.panelPassengers.Name = "panelPassengers";
+            this.panelPassengers.Size = new System.Drawing.Size(1289, 205);
+            this.panelPassengers.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.panel1.Location = new System.Drawing.Point(18, 17);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1251, 73);
+            this.panel1.TabIndex = 0;
+            this.panel1.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.radioButton1);
+            this.panel2.Location = new System.Drawing.Point(18, 112);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1251, 73);
+            this.panel2.TabIndex = 1;
+            this.panel2.Visible = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton1.Location = new System.Drawing.Point(21, 23);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(150, 29);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(813, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(172, 24);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Seçilen Koltuk: 15A";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(1033, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 24);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "30,00₺";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1182, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 40);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FormSeatSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(1382, 613);
+            this.ClientSize = new System.Drawing.Size(1322, 762);
+            this.Controls.Add(this.panelPassengers);
             this.Controls.Add(this.panelSeatSelection);
             this.Controls.Add(this.panelSeatInfo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -494,6 +582,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.panelSeatSelection.ResumeLayout(false);
             this.panelSeatSelection.PerformLayout();
+            this.panelPassengers.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -537,5 +628,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelPassengers;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

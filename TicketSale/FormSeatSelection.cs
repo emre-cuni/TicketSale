@@ -20,14 +20,22 @@ namespace TicketSale
 
         PictureBox pictureBox;
         Label label;
-        int x1 = 89, x2 = 95, labelSize = 16, passengerCount, selectedSeatCount = 0;
+        Button button;
+        RadioButton radioButton;
+        Panel panel;
+        int x1 = 89, x2 = 95, labelSize = 16, passengerCount, selectedSeatCount = 0, panelY = 17;
         string selectedSeatName = null;
+        List<string> passengers = new List<string>();
 
         private void FormSeatSelection_Load(object sender, EventArgs e)
         {
             try
             {
+                passengers.Add("Emre Cüni");
+                passengers.Add("İbrahim Akı");
                 AddSeat();
+                AddButton();
+                AddPassengersPanel();
             }
             catch (Exception ex)
             {
@@ -76,6 +84,18 @@ namespace TicketSale
             catch (Exception ex)
             {
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Koltuk Seçimi Hatası");
+            }
+        }
+
+        private void buttonSaveSelection_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Seçimi Kaydet Hatası");
             }
         }
 
@@ -139,7 +159,7 @@ namespace TicketSale
 
                     AddLabel(i.ToString(), x2, 147, labelSize);
 
-                    if (i == 15 || i == 16)
+                    if (i == 15 || i == 16) // acil çıkışlar
                     {
                         AddSeatPicture($"pictureBox{i}A", x1, 45, 3);
                         AddSeatPicture($"pictureBox{i}B", x1, 78, 3);
@@ -168,6 +188,96 @@ namespace TicketSale
             catch (Exception ex)
             {
                 MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Koltuk Ekleme Hatası");
+            }
+        }
+
+        private void AddButton()
+        {
+            try
+            {
+                button = new Button();
+                button.Name = "buttonSaveSelection";
+                button.Text = "Seçimi Kaydet";
+                button.Size = new Size(150, 43);
+                button.Location = new Point(1100, 300);
+                button.BackColor = Color.DarkGray;
+                button.Click += new EventHandler(buttonSaveSelection_Click);
+
+                panelSeatSelection.Controls.Add(button);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Buton Ekleme Hatası");
+            }
+        }
+
+        private void AddPassengersPanel()
+        {
+            try
+            {
+                for (int i = 0; i < passengerCount; i++)
+                {
+                    panel = new Panel();
+                    panel.Name = $"panel{i}";
+                    panel.Location = new Point(18, panelY);
+                    panel.Size = new Size(1251, 73);
+                    panel.BackColor = Color.FromArgb(130, 130, 130);
+
+                    radioButton = new RadioButton();
+                    radioButton.Name = $"radioButton{i}";
+                    radioButton.Location = new Point(21, 23);
+                    radioButton.Size = new Size(150, 29);
+                    radioButton.Text = passengers[i];
+                    radioButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+                    radioButton.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+                    if (i == 0)
+                        radioButton.Checked = true;
+                    panel.Controls.Add(radioButton);
+
+                    label = new Label();
+                    label.Location = new Point(813, 23);
+                    label.Size = new Size(172, 24);
+                    label.Visible = false;
+                    label.Name = $"labelSelectedSeat{i}";
+                    panel.Controls.Add(label);
+
+                    label = new Label();
+                    label.Location = new Point(1033, 23);
+                    label.Size = new Size(66, 24);
+                    label.Name = $"labelSeatPrice{i}";
+                    label.Visible = false;
+                    panel.Controls.Add(label);
+
+                    button = new Button();
+                    button.Name = $"buttonCancel{i}";
+                    button.Location = new Point(1182, 14);
+                    button.Size = new Size(40, 40);
+                    button.Text = "X";
+                    button.BackColor = Color.Red;
+                    button.ForeColor = Color.White;
+                    button.Visible = false;
+                    button.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+                    panel.Controls.Add(button);
+
+                    panelPassengers.Controls.Add(panel);
+                    panelY += 95;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "Passengers Panel Hatası");
+            }
+        }
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ex.message: " + ex.Message + " stacktrace: " + ex.StackTrace, "radioButton CheckedChanged Hatası");
             }
         }
     }
